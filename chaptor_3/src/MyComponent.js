@@ -90,11 +90,11 @@ MyComponent.propTypes = {
 };
 */
 
-import {Component} from 'react';
-import PropTypes from 'prop-types';
+import { Component } from "react";
+import PropTypes from "prop-types";
 
-class MyComponent extends Component{
-    /* class 안에서 지정하는 방법
+class MyComponent extends Component {
+  /* class 안에서 지정하는 방법
     static defaultProps = {
         name : '기본 이름'
     };
@@ -102,27 +102,27 @@ class MyComponent extends Component{
         name: PropTypes.string,
         favoriteNumber: PropTypes.number.isRequired
     }; */
-    render() {
-        const {name,favoriteNumber,children} = this.props; // 비구조화 할당
-        return (
-            <div>
-                안녕하세요 전 {name}입니다. <br />
-            children 값은 {children}
-            입니다.
-            <br />
-            my favorite number is {favoriteNumber} . 
-        </div>
-        )
-    }
+  render() {
+    const { name, favoriteNumber, children } = this.props; // 비구조화 할당
+    return (
+      <div>
+        안녕하세요 전 {name}입니다. <br />
+        children 값은 {children}
+        입니다.
+        <br />
+        my favorite number is {favoriteNumber} .
+      </div>
+    );
+  }
 }
 
 MyComponent.defaultProps = {
-    name : '기본 이름'
+  name: "기본 이름",
 };
 
 MyComponent.propTypes = {
-    name: PropTypes.string,
-    favoriteNumber: PropTypes.number.isRequired
+  name: PropTypes.string,
+  favoriteNumber: PropTypes.number.isRequired,
 };
 
 export default MyComponent;

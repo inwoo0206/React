@@ -63,7 +63,7 @@ class EventPractice extends Component{
     }
 };
 */
- 
+
 /* 확인 버튼 만들고 alert 함수 사용해서 값을 창에 띄우기
 class EventPractice extends Component{
 
@@ -232,7 +232,6 @@ class EventPractice extends Component{
 }
 */
 
-
 /* onKeyPress 이벤트 핸들링
 class EventPractice extends Component{
 
@@ -330,59 +329,58 @@ const EventPractice = () => {
         </div>
     );
 };
-*/ 
+*/
 
 // form객체 선언해서 같이 값 넘겨주기
-import { useState } from 'react';
+import { useState } from "react";
 
 const EventPractice = () => {
-    const [form,setForm] = useState({
-        username: '',
-        message: ''
+  const [form, setForm] = useState({
+    username: "",
+    message: "",
+  });
+  const { username, message } = form;
+  const onChange = (e) => {
+    const nextForm = {
+      ...form,
+      [e.target.name]: e.target.value,
+    };
+    setForm(nextForm);
+  };
+  const onClick = () => {
+    alert(username + " : " + message);
+    setForm({
+      username: "",
+      message: "",
     });
-    const {username,message} = form;
-    const onChange = e => {
-        const nextForm = {
-            ...form,
-            [e.target.name] : e.target.value
-        };
-        setForm(nextForm)
-    };
-    const onClick = () => {
-        alert(username + ' : ' + message);
-        setForm({
-            username: '',
-            message: ''
-        })
-    };
-    const onKeyPress = e => {
-        if (e.key === 'Enter'){
-            onClick();
-        }
-    };
+  };
+  const onKeyPress = (e) => {
+    if (e.key === "Enter") {
+      onClick();
+    }
+  };
 
-    return (
-        <div>
-             <h1>event pracitce</h1>
-                <input
-                    type = "text"
-                    name = "username"
-                    placeholder = "사용자명"
-                    value = { username }
-                    onChange= {onChange}
-                />
-                <input
-                    type = "text"
-                    name = "message"
-                    placeholder = "input something"
-                    value = {message}
-                    onChange={onChange}
-                    onKeyPress={onKeyPress}
-                />
-                <button onClick={onClick}
-                    >확인</button>
-        </div>
-    );
+  return (
+    <div>
+      <h1>event pracitce</h1>
+      <input
+        type="text"
+        name="username"
+        placeholder="사용자명"
+        value={username}
+        onChange={onChange}
+      />
+      <input
+        type="text"
+        name="message"
+        placeholder="input something"
+        value={message}
+        onChange={onChange}
+        onKeyPress={onKeyPress}
+      />
+      <button onClick={onClick}>확인</button>
+    </div>
+  );
 };
 
 export default EventPractice;

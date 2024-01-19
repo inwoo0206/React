@@ -1,4 +1,3 @@
-
 /** 삼항연산자 기초 사용
 function App() {
   const name = 'react';
@@ -54,17 +53,16 @@ function App() {
 */
 
 // 꼭 닫아야하는 태크
-import './App.css';
+import "./App.css";
 
 function App() {
-  const name = 'react';
+  const name = "react";
   return (
-  <>
-    <div className='react'> {name} </div>
-    <input></input>
+    <>
+      <div className="react"> {name} </div>
+      <input></input>
     </>
-  );  
-} 
-
+  );
+}
 
 export default App;
