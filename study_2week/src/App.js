@@ -1,5 +1,6 @@
 import React from "react";
 import SpeechTexts from "./SpeechTexts";
+import ScrollBox from "./Slide";
 
 const App = () => {
   return (
