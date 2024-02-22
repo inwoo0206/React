@@ -99,6 +99,7 @@ export default connect(
 )(CounterContainer);
 */
 
+/*
 // mapDispatchToProps 에 해당 파라미터를 객체 형태로 넣어주기
 import { connect } from 'react-redux';
 import Counter from '../components/Counter';
@@ -119,3 +120,57 @@ export default connect(
     decrease,
   },
 )(CounterContainer);
+*/
+
+/*
+// 17.7.1 useSelector 로 상태 조회하기
+import { useSelector } from 'react-redux';
+import Counter from '../components/Counter';
+import { increase, decrease } from '../modules/counter';
+
+const CounterContainer = () => {
+  const number = useSelector((state) => state.counter.number);
+  return <Counter number={number} />;
+};
+
+export default CounterContainer;
+*/
+
+/*
+// 17.7.2 useDispatch 사용하기
+import { useSelector, useDispatch } from 'react-redux';
+import Counter from '../components/Counter';
+import { increase, decrease } from '../modules/counter';
+
+const CounterContainer = () => {
+  const number = useSelector((state) => state.counter.number);
+  const dispatch = useDispatch();
+  return (
+    <Counter
+      number={number}
+      onIncrease={() => dispatch(increase())}
+      onDecrease={() => dispatch(decrease())}
+    />
+  );
+};
+
+export default CounterContainer;
+*/
+
+// useCallback 사용
+import { useCallback } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import Counter from '../components/Counter';
+import { increase, decrease } from '../modules/counter';
+
+const CounterContainer = () => {
+  const number = useSelector((state) => state.counter.number);
+  const dispatch = useDispatch();
+  const onIncrease = useCallback(() => dispatch(increase()), [dispatch]);
+  const onDecrease = useCallback(() => dispatch(decrease()), [dispatch]);
+  return (
+    <Counter number={number} onIncrease={onIncrease} onDecrease={onDecrease} />
+  );
+};
+
+export default CounterContainer;
