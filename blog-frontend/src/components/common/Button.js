@@ -50,7 +50,7 @@ const StyledButton = styled.button`
     font-size: 1.125rem;
   `}
 
-  ${props => 
+  ${props =>
   props.cyan && 
   css `
     background: ${palette.cyan[5]};
